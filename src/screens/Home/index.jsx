@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   Column, Title, Hero, Section, Container,
 } from 'rbx';
@@ -31,12 +32,12 @@ function HomeScreen() {
                   Veniam, nam incidunt sequi officia sapiente a eum recusandae facilis
                   modi aliquid sunt eligendi debitis ex hic ratione dolores libero autem. Facere!
                 </Title>
-                <a
-                  href="/"
-                  className="button is-warning is-large has-text-weight-bold"
+                <Link
+                  to="/register"
+                  className="button is-outlined is-light is-large has-text-weight-bold"
                 >
                   Register Now
-                </a>
+                </Link>
               </Column>
               <Column
                 size={6}
