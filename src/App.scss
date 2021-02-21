@@ -1,10 +1,13 @@
 @charset 'utf-8';
 @import "~bulma/sass/utilities/functions";
 @import "./styles/custom_colors.scss";
+@import "./styles/header.scss";
 
 $custom-colors: (
   "sky-blue": ($sky-blue),
-  "sky-blue-dark": ($sky-blue-dark)
+  "sky-blue-dark": ($sky-blue-dark),
+  "sunny-yellow": ($sunny-yellow),
+  "sunny-yellow-dark": ($sunny-yellow-dark)
 );
 
 $primary: $sky-blue;

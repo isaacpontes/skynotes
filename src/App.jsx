@@ -1,14 +1,10 @@
 import React from 'react';
+import HomeScreen from './screens/Home';
 import './App.scss';
-import { Notification, Section } from 'rbx';
 
 const App = () => (
   <>
-    <Section>
-      <Notification color="primary">
-        Javascript Notes!
-      </Notification>
-    </Section>
+    <HomeScreen />
   </>
 );
 
