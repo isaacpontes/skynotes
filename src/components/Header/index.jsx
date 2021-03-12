@@ -29,7 +29,11 @@ function Header() {
           active={openMenu.toString()}
           onClick={() => setOpenMenu(!openMenu)}
         >
-          <Navbar.Segment as="div" className="navbar-end buttons is-flex is-justify-content-space-evenly is-align-items-center">
+          <Navbar.Segment
+            as="div"
+            align="right"
+            className="navbar-end buttons is-flex is-justify-content-space-evenly is-align-items-center"
+          >
             <Link to="/register" className="button is-white has-text-sky-blue">Register</Link>
             <Link to="/login" className="button is-outlined is-sky-blue">Login</Link>
           </Navbar.Segment>
