@@ -4,12 +4,13 @@ import {
 } from 'rbx';
 import Header from '../../../components/Header';
 import LogoImage from '../../../assets/images/logo.png';
+import LoginForm from '../../../components/LoginForm';
 
 const Login = () => (
   <>
     <Header />
     <Hero size="fullheight-with-navbar" color="primary" gradient>
-      <Section size="medium" className="auth">
+      <Section>
         <Container>
           <Column.Group centered>
             <Column size={4}>
@@ -28,6 +29,10 @@ const Login = () => (
                           Your notes on the cloud
                         </Title>
                       </Column>
+                    </Column.Group>
+
+                    <Column.Group>
+                      <LoginForm />
                     </Column.Group>
                   </Section>
                 </Card.Content>
