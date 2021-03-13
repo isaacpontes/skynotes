@@ -6,6 +6,7 @@ import LoginScreen from './screens/Auth/Login';
 import NotesScreen from './screens/Notes';
 import UserScreen from './screens/Users';
 import PrivateRoute from './components/PrivateRoute';
+import PublicRoute from './components/PublicRoute';
 
 function Routes() {
   return (
@@ -13,7 +14,7 @@ function Routes() {
       <Switch>
         <Route exact path="/" component={HomeScreen} />
         <Route exact path="/register" component={RegisterScreen} />
-        <Route exact path="/login" component={LoginScreen} />
+        <PublicRoute exact path="/login" component={LoginScreen} />
         <PrivateRoute exact path="/notes" component={NotesScreen} />
         <PrivateRoute exact path="/users/edit" component={UserScreen} />
       </Switch>
