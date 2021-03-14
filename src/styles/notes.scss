@@ -1,7 +1,6 @@
 @import './custom_colors';
 
 .notes {
-  overflow: hidden;
   margin: 0;
 }
 
@@ -22,4 +21,13 @@
 
 .list > .list-item.is-active {
   background-color: #ccc;
+}
+
+.notes-editor {
+  padding: 0;
+  height: calc(100vh - 4em);
+
+  .quill {
+    height: 100%;
+  }
 }

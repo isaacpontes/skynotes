@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { push as Sidebar } from 'react-burger-menu';
 import NotesService from '../../services/notes';
 import '../../styles/notes.scss';
+import NotesEditor from './Editor';
 import NotesList from './List';
 
 function Notes({ isOpen, setIsOpen }) {
@@ -16,7 +17,37 @@ function Notes({ isOpen, setIsOpen }) {
     if (response.data.data.length >= 1) {
       setNotes(response.data.data.reverse());
       setCurrentNote(response.data.data[0]);
+    } else {
+      setNotes([]);
     }
+  }
+
+  async function createNote() {
+    NotesService.create()
+      .then(() => fetchNotes())
+      .catch((error) => console.error(error));
+  }
+
+  async function updateNote(oldNote, params) {
+    NotesService.update(oldNote._id, params)
+      .then((updatedNote) => {
+        console.log(updatedNote.data.data);
+        const index = notes.indexOf(oldNote);
+        const newNotes = notes;
+        console.log(newNotes);
+        newNotes[index] = updatedNote.data.data;
+        console.log(newNotes);
+        setNotes(newNotes);
+        console.log(notes);
+        setCurrentNote(updatedNote.data.data);
+      })
+      .catch((error) => console.error(error));
+  }
+
+  async function deleteNote(noteId) {
+    NotesService.delete(noteId)
+      .then(() => fetchNotes())
+      .catch((error) => console.error(error));
   }
 
   function selectNote(id) {
@@ -46,12 +77,21 @@ function Notes({ isOpen, setIsOpen }) {
             </Column>
           </Column.Group>
 
-          <NotesList notes={notes} currentNote={currentNote} selectNote={selectNote} />
+          <NotesList
+            notes={notes}
+            currentNote={currentNote}
+            selectNote={selectNote}
+            createNote={createNote}
+            deleteNote={deleteNote}
+          />
 
         </Sidebar>
 
         <Column size={12} className="notes-editor" id="notes-editor">
-          Editor...
+          <NotesEditor
+            note={currentNote}
+            updateNote={updateNote}
+          />
         </Column>
       </Column.Group>
     </>
