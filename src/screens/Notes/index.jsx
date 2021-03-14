@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import LoggedInHeader from '../../components/LoggedInHeader';
+import Notes from '../../components/Notes';
 
-const Notes = () => (
-  <>
-    <LoggedInHeader />
-    Hello World
-  </>
-);
+function NotesScreen() {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <>
+      <LoggedInHeader setIsOpen={setIsOpen} />
+      <Notes isOpen={isOpen} setIsOpen={setIsOpen} />
+    </>
+  );
+}
 
-export default Notes;
+export default NotesScreen;
