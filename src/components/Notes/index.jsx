@@ -7,6 +7,7 @@ import NotesService from '../../services/notes';
 import '../../styles/notes.scss';
 import NotesEditor from './Editor';
 import NotesList from './List';
+import NotesSearch from './Search';
 
 function Notes({ isOpen, setIsOpen }) {
   const [notes, setNotes] = useState([]);
@@ -50,6 +51,12 @@ function Notes({ isOpen, setIsOpen }) {
       .catch((error) => console.error(error));
   }
 
+  async function searchNotes(query) {
+    NotesService.search(query)
+      .then((response) => setNotes(response.data.data))
+      .catch((error) => console.error(error));
+  }
+
   function selectNote(id) {
     const noteToSelect = notes.find((note) => note._id === id);
     setCurrentNote(noteToSelect);
@@ -72,8 +79,8 @@ function Notes({ isOpen, setIsOpen }) {
           customCrossIcon={false}
         >
           <Column.Group>
-            <Column size={10} offset={1}>
-              Search...
+            <Column size={12}>
+              <NotesSearch searchNotes={searchNotes} fetchNotes={fetchNotes} />
             </Column>
           </Column.Group>
 
