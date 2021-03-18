@@ -15,9 +15,9 @@ function Notes({ isOpen, setIsOpen }) {
 
   async function fetchNotes() {
     const response = await NotesService.findAll();
-    if (response.data.data.length >= 1) {
-      setNotes(response.data.data.reverse());
-      setCurrentNote(response.data.data[0]);
+    if (response.data.notes.length >= 1) {
+      setNotes(response.data.notes.reverse());
+      setCurrentNote(response.data.notes[0]);
     } else {
       setNotes([]);
     }
@@ -32,15 +32,11 @@ function Notes({ isOpen, setIsOpen }) {
   async function updateNote(oldNote, params) {
     NotesService.update(oldNote._id, params)
       .then((updatedNote) => {
-        console.log(updatedNote.data.data);
         const index = notes.indexOf(oldNote);
         const newNotes = notes;
-        console.log(newNotes);
-        newNotes[index] = updatedNote.data.data;
-        console.log(newNotes);
+        newNotes[index] = updatedNote.data.note;
         setNotes(newNotes);
-        console.log(notes);
-        setCurrentNote(updatedNote.data.data);
+        setCurrentNote(updatedNote.data.note);
       })
       .catch((error) => console.error(error));
   }
@@ -53,7 +49,7 @@ function Notes({ isOpen, setIsOpen }) {
 
   async function searchNotes(query) {
     NotesService.search(query)
-      .then((response) => setNotes(response.data.data))
+      .then((response) => setNotes(response.data.notes))
       .catch((error) => console.error(error));
   }
 
