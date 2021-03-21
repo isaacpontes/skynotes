@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
+import LoggedInHeader from '../../components/LoggedInHeader';
+import Users from '../../components/Users';
 
-const UserEdit = () => (
-  <>
-    Hello World
-  </>
-);
+function EditUserScreen() {
+  const [isOpen, setIsOpen] = useState(false);
 
-export default UserEdit;
+  if (isOpen) return <Redirect to={{ pathname: '/notes' }} />;
+
+  return (
+    <>
+      <LoggedInHeader setIsOpen={setIsOpen} />
+      <Users />
+    </>
+  );
+}
+
+export default EditUserScreen;

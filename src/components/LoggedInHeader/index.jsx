@@ -54,7 +54,7 @@ function LoggedInHeader({ setIsOpen }) {
           align="end"
         >
           <Link
-            to="/"
+            to={{ pathname: '/user/edit', state: { isOpen: false } }}
             className="navbar-item"
           >
             <FaUser className="mr-2" />
