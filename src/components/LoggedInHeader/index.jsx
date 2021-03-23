@@ -10,6 +10,12 @@ function LoggedInHeader({ setIsOpen }) {
   const [openMenu, setOpenMenu] = useState(false);
   const [redirectHome, setRedirectHome] = useState(false);
 
+  const user = localStorage.getItem('user');
+  let name = '';
+  if (user !== null) {
+    name = JSON.parse(user).name;
+  }
+
   async function handleLogout() {
     await UsersService.logout();
     setRedirectHome(true);
@@ -58,7 +64,7 @@ function LoggedInHeader({ setIsOpen }) {
             className="navbar-item"
           >
             <FaUser className="mr-2" />
-            My Profile
+            {`${name} - Edit Profile`}
           </Link>
           <Navbar.Item
             as="a"

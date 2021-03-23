@@ -1,15 +1,18 @@
 /* eslint-disable react/prop-types */
 import { Button, Modal, Title } from 'rbx';
-import React from 'react';
+import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import UsersService from '../../../services/users';
 
 function DeleteUserModal({ isActive, toggleModal }) {
+  const [redirectHome, setRedirectHome] = useState(false);
+
   async function deleteUser() {
     await UsersService.delete();
+    setRedirectHome(true);
   }
 
-  if (localStorage.getItem('user') === null) <Redirect to={{ pathname: '/' }} />;
+  if (redirectHome) return <Redirect to={{ pathname: '/' }} />;
 
   return (
     <>
