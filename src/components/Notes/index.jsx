@@ -25,8 +25,7 @@ function Notes({ isOpen, setIsOpen }) {
 
   async function createNote() {
     NotesService.create()
-      .then(() => fetchNotes())
-      .catch((error) => console.error(error));
+      .then(() => fetchNotes());
   }
 
   async function updateNote(oldNote, params) {
@@ -37,20 +36,17 @@ function Notes({ isOpen, setIsOpen }) {
         newNotes[index] = updatedNote.data.note;
         setNotes(newNotes);
         setCurrentNote(updatedNote.data.note);
-      })
-      .catch((error) => console.error(error));
+      });
   }
 
   async function deleteNote(noteId) {
     NotesService.delete(noteId)
-      .then(() => fetchNotes())
-      .catch((error) => console.error(error));
+      .then(() => fetchNotes());
   }
 
   async function searchNotes(query) {
     NotesService.search(query)
-      .then((response) => setNotes(response.data.notes))
-      .catch((error) => console.error(error));
+      .then((response) => setNotes(response.data.notes));
   }
 
   function selectNote(id) {
