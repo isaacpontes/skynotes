@@ -4,16 +4,76 @@
 @import "./styles/header.scss";
 
 $custom-colors: (
-  "sky-blue": ($sky-blue),
-  "sky-blue-dark": ($sky-blue-dark),
-  "sunny-yellow": ($sunny-yellow),
-  "sunny-yellow-dark": ($sunny-yellow-dark)
+  "secondary": ($sunny-yellow)
 );
 
 $primary: $sky-blue;
+// $link: $sunny-yellow;
+$light: $custom-light;
+
+$radius: 0;
 
 // Import Bulma styles
 @import "~bulma/bulma";
 
 // Import rbx style fixes
 @import "~rbx/rbx";
+
+.button {
+  font-weight: 700;
+  transition: .15s;
+}
+
+a.navbar-item {
+  transition: .15s;
+
+  &:hover {
+    background: transparent;
+    color: $primary;
+  }
+}
+
+.presentation-section {
+  display: flex;
+  margin-top: -32rem;
+  padding-top: 36rem;
+
+  &__divider {
+    background: $primary;
+    display: block;
+    margin: 0 auto;
+    height: 100%;
+    width: 2px;
+  }
+}
+
+.has-separator {
+  position: relative;
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    width: 32px;
+
+    background: $primary;
+  }
+
+  &-light {
+
+    position: relative;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: -24px;
+      height: 2px;
+      width: 128px;
+
+      background: $white;
+    }
+  }
+}
