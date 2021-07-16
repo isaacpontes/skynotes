@@ -38,7 +38,7 @@ function Header() {
                   <a href="#" className="navbar-item pl-0">Javascript Notes Pro</a>
                 </li>
                 <li>
-                  <a href="#" className="navbar-item pl-0">Javascript Notes Business</a>
+                  <a href="#" className="navbar-item pl-0">Javascript Notes Enterprise</a>
                 </li>
                 <li>
                   <a href="#" className="navbar-item pl-0">Download App</a>

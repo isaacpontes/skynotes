@@ -53,10 +53,9 @@ a.navbar-item {
   &::after {
     content: '';
     display: block;
-    position: absolute;
-    bottom: 0;
+    margin: 1.5rem auto;
     height: 2px;
-    width: 32px;
+    width: 64px;
 
     background: $primary;
   }
@@ -68,10 +67,9 @@ a.navbar-item {
     &::after {
       content: '';
       display: block;
-      position: absolute;
-      bottom: -24px;
+      margin: 1.5rem auto;
       height: 2px;
-      width: 128px;
+      width: 64px;
 
       background: $white;
     }

@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {
-  Column, Title, Section, Container,
+  Column, Title, Section, Container, Card, Button,
 } from 'rbx';
+import { CardHeaderTitle } from 'rbx/components/card/card-header-title';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import heroImg from '../../assets/images/hero.svg';
@@ -15,6 +16,7 @@ import company2Img from '../../assets/images/company2.svg';
 import company3Img from '../../assets/images/company3.svg';
 import company4Img from '../../assets/images/company4.svg';
 import company5Img from '../../assets/images/company5.svg';
+import { FaCheckCircle } from 'react-icons/fa';
 
 
 function HomeScreen() {
@@ -118,9 +120,9 @@ function HomeScreen() {
           </Column.Group>
         </Container>
       </Section>
-      <Section id="pricing" className="has-background-primary">
+      <Section id="customers" className="has-background-primary">
         <Container>
-          <Title size="3" className="has-separator-light has-text-white mb-6">
+          <Title size="3" textAlign="centered" className="has-separator-light has-text-white mb-6">
             Companies That Trust Our Solutions
           </Title>
           <Column.Group className="is-vcentered">
@@ -138,6 +140,159 @@ function HomeScreen() {
             </Column>
             <Column className="px-6">
               <img src={company5Img} alt="Company Logo" />
+            </Column>
+          </Column.Group>
+        </Container>
+      </Section>
+      <Section id="customers" className="has-background-white">
+        <Container>
+          <Title size="3" textAlign="centered" className="has-separator mb-6">
+            Pricing and Plans
+          </Title>
+
+          <Column.Group className="is-centered">
+            <Column size={3}>
+              <Card backgroundColor="primary">
+                <CardHeaderTitle align="centered" textColor="white">
+                  Starter
+                </CardHeaderTitle>
+                <Card.Content>
+                  <Title textColor="white">
+                    Free. Forever.
+                  </Title>
+                </Card.Content>
+                <article className="has-background-white">
+                  <Card.Content>
+                    <ul className="mb-5">
+                      <li className="is-flex is-align-items-center mb-2">
+                        <FaCheckCircle className="has-text-success mr-3" />
+                        Create unlimited notes
+                      </li>
+                      <li className="is-flex is-align-items-center mb-2">
+                        <FaCheckCircle className="has-text-success mr-3" />
+                        Easily search for your notes
+                      </li>
+                      <li className="is-flex is-align-items-center mb-2">
+                        <FaCheckCircle className="has-text-success mr-3" />
+                        Powerfull rich-text editor
+                      </li>
+                      <li className="is-flex is-align-items-center mb-2">
+                        <FaCheckCircle className="has-text-success mr-3" />
+                        Up to 10MB notes
+                      </li>
+                      <li className="is-flex is-align-items-center mb-2">
+                        <FaCheckCircle className="has-text-success mr-3" />
+                        1GB of cloud storage
+                      </li>
+                    </ul>
+                    <Button color="secondary" fullwidth>
+                      Create an Account
+                    </Button>
+                  </Card.Content>
+                </article>
+              </Card>
+            </Column>
+            <Column size={3}>
+              <Card backgroundColor="primary">
+                <CardHeaderTitle align="centered" textColor="white">
+                  Pro
+                </CardHeaderTitle>
+                <Card.Content>
+                  <Title textColor="white">
+                    <span className="is-size-6">US$ </span>
+                    2.99/
+                    <span className="is-size-6">month</span>
+                  </Title>
+                </Card.Content>
+                <article className="has-background-white">
+                  <Card.Content>
+                    <ul className="mb-5">
+                      <li className="is-flex is-align-items-center mb-2 has-text-weight-bold">
+                        <FaCheckCircle className="has-text-success mr-3" />
+                        Everything from Starter
+                      </li>
+                      <li className="is-flex is-align-items-center mb-2">
+                        <FaCheckCircle className="has-text-success mr-3" />
+                        Offline access
+                      </li>
+                      <li className="is-flex is-align-items-center mb-2">
+                        <FaCheckCircle className="has-text-success mr-3" />
+                        Share your notes
+                      </li>
+                      <li className="is-flex is-align-items-center mb-2">
+                        <FaCheckCircle className="has-text-success mr-3" />
+                        Organize with folders
+                      </li>
+                      <li className="is-flex is-align-items-center mb-2">
+                        <FaCheckCircle className="has-text-success mr-3" />
+                        Notes with images
+                      </li>
+                      <li className="is-flex is-align-items-center mb-2">
+                        <FaCheckCircle className="has-text-success mr-3" />
+                        Up to 100MB notes
+                      </li>
+                      <li className="is-flex is-align-items-center mb-2">
+                        <FaCheckCircle className="has-text-success mr-3" />
+                        10GB of cloud storage
+                      </li>
+                    </ul>
+                    <Button color="secondary" fullwidth>
+                      Try for free
+                    </Button>
+                  </Card.Content>
+                </article>
+              </Card>
+            </Column>
+            <Column size={3}>
+              <Card backgroundColor="primary">
+                <CardHeaderTitle align="centered" textColor="white">
+                  Enterprise
+                </CardHeaderTitle>
+                <Card.Content>
+                  <Title textColor="white">
+                    <span className="is-size-6">US$ </span>
+                    9.99/
+                    <span className="is-size-6">user / month</span>
+                  </Title>
+                </Card.Content>
+                <article className="has-background-white">
+                  <Card.Content>
+                    <ul className="mb-5">
+                      <li className="is-flex is-align-items-center mb-2 has-text-weight-bold">
+                        <FaCheckCircle className="has-text-success mr-3" />
+                        Everything from Pro
+                      </li>
+                      <li className="is-flex is-align-items-center mb-2">
+                        <FaCheckCircle className="has-text-success mr-3" />
+                        Share work with a team
+                      </li>
+                      <li className="is-flex is-align-items-center mb-2">
+                        <FaCheckCircle className="has-text-success mr-3" />
+                        Team activity history
+                      </li>
+                      <li className="is-flex is-align-items-center mb-2">
+                        <FaCheckCircle className="has-text-success mr-3" />
+                        Manage your team&lsquo;s users
+                      </li>
+                      <li className="is-flex is-align-items-center mb-2">
+                        <FaCheckCircle className="has-text-success mr-3" />
+                        Multiple access levels
+                      </li>
+                      <li className="is-flex is-align-items-center mb-2">
+                        <FaCheckCircle className="has-text-success mr-3" />
+                        Interface customization
+                      </li>
+                      <li className="is-flex is-align-items-center mb-2">
+                        <FaCheckCircle className="has-text-success mr-3" />
+                        20GB storage + 2GB / user
+                      </li>
+                    </ul>
+                    <Button color="secondary" fullwidth>
+                      Try for free
+                    </Button>
+                  </Card.Content>
+                </article>
+              </Card>
             </Column>
           </Column.Group>
         </Container>
